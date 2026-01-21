@@ -4,7 +4,7 @@
 
 prerequisites-install() {
     sudo dnf install -y  @development-tools 
-    sudo dnf install -y git tcl-devel tk-devel libX11-devel libXext-devel \
+    sudo dnf install -y gcc-c++ git tcl-devel tk-devel libX11-devel libXext-devel \
         libXrender-devel libXScrnSaver-devel mesa-libGL-devel \
         mesa-libGLU-devel cairo-devel \
         python3 python3-pip wget bison flex
