@@ -95,6 +95,10 @@ test-magic() {
     echo "magic -rcfile ~/skywater-pdk/env/conda/envs/skywater-pdk-scripts/share/pdk/sky130A/libs.tech/magic/sky130A.magicrc"
 }
 
+post-cleaning() {
+    conda config --set auto_activate false
+}
+
 prerequisites-install
 cleaning
 install-conda
@@ -103,3 +107,4 @@ accept-conda-tos
 install-skywater130
 set-environment-variables
 test-magic
+post-cleaning
