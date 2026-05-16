@@ -3,6 +3,7 @@
 #set -euo pipefail
 
 prerequisites-install() {
+    echo "Installing prerequisites"
     sudo dnf install -y  @development-tools 
     sudo dnf install -y gcc-c++ git tcl-devel tk-devel libX11-devel libXext-devel \
         libXrender-devel libXScrnSaver-devel mesa-libGL-devel \
@@ -11,6 +12,7 @@ prerequisites-install() {
 }
 
 install-conda() {
+    echo "Installing conda"
     cd "$HOME"
     if [ ! -d "miniconda3" ]; then
         wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -24,6 +26,7 @@ install-conda() {
 }
 
 install-magic() {
+    echo "Installing magic"
     set -e
     git clone https://github.com/RTimothyEdwards/magic.git
     cd magic
@@ -33,6 +36,7 @@ install-magic() {
 }
 
 accept-conda-tos() {
+    echo "Accepting conda terms of service"
     set -e
     # Accept TOS for SkyWater
     conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
@@ -40,6 +44,7 @@ accept-conda-tos() {
 }
 
 install-skywater130() {
+    echo "Installing skywater130A"
     set -e
     cd "$HOME"
     git clone https://github.com/google/skywater-pdk.git
@@ -60,6 +65,7 @@ set-environment-variables() {
 }
 
 test-magic() {
+    echo "Testing magic"
     set -e
     if magic --version >/dev/null 2>&1; then
         echo "magic is installed and reachable in PATH"
